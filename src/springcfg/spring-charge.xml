@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="chargeDao" class="com.yesion.dao.impl.ITChargeDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="chargeService" class="com.yesion.service.impl.ITChargeServiceImpl">
+        <property name="chargeDao" ref="chargeDao"/>
+        <property name="utilDao" ref="utilDao"/>
+    </bean>
+
+    <bean id="chargeConfigAction" class="com.yesion.action.ChargeConfigAction">
+        <property name="chargeService" ref="chargeService"/>
+    </bean>
+
+</beans>

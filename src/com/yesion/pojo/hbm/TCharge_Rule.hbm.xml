@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.yesion.pojo">
+    <class name="TCharge_Rule" table="TCharge_Rule">
+        <composite-id>
+            <key-property name="funcId" column="Func_ID" length="1"/>
+            <key-many-to-one name="charge" class="TCharge" column="Charge_Code"/>
+        </composite-id>
+        <property name="funcName" column="Func_Name" length="10"/>
+    </class>
+</hibernate-mapping>

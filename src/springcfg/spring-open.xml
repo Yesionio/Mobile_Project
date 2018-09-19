@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="customerDao" class="com.yesion.dao.impl.ITCustomerDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="openAccount" class="com.yesion.service.impl.OpenAccountImpl">
+        <property name="customerDao" ref="customerDao"/>
+        <property name="utilDao" ref="utilDao"/>
+        <property name="mobileDao" ref="mobileDao"/>
+    </bean>
+
+    <bean id="opAccuAction" class="com.yesion.action.OpAccuAction">
+        <property name="openAccount" ref="openAccount"/>
+    </bean>
+
+</beans>

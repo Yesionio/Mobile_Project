@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.yesion.pojo">
+   <!-- 类与表的映射 -->
+   <class name="TOperator" table="TOperator">
+      <id name="operatorId" column="Operator_ID" length="10"/>
+      <property name="operatorName" column="Operator_Name" length="20"/>
+      <property name="operatorPwd" column="Operator_Pwd" length="20"/>
+      <property name="isAdmin" column="Is_Admin" length="1"/> <!--默认为N-->
+
+      <!--外键-->
+   </class>
+</hibernate-mapping>

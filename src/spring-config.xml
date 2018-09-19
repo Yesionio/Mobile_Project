@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+    <!--数据源-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!--基本信息-->
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/taobao?useSSL=false"/>
+        <property name="user" value="yesion"/>
+        <property name="password" value="123456"/>
+        <!--连接池配置-->
+        <property name="initialPoolSize" value="3"/>
+        <property name="maxPoolSize" value="10"/>
+        <property name="minPoolSize" value="2"/>
+    </bean>
+    <!--sessionFactory配置-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mappingResources">
+            <list>
+                <value>com/yesion/pojo/hbm/TAccount.hbm.xml</value>
+                <value>com/yesion/pojo/hbm/TCharge.hbm.xml</value>
+                <value>com/yesion/pojo/hbm/TCharge_Rule.hbm.xml</value>
+                <value>com/yesion/pojo/hbm/TCustomer.hbm.xml</value>
+                <value>com/yesion/pojo/hbm/TMobiles.hbm.xml</value>
+                <value>com/yesion/pojo/hbm/TOperator.hbm.xml</value>
+                <value>com/yesion/pojo/hbm/TUser.hbm.xml</value>
+            </list>
+        </property>
+
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">false</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--事务管理器-->
+    <bean id="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!--申明事务使用方式-->
+    <tx:annotation-driven transaction-manager="txManager"/>
+
+
+    <!-- **********************你好************************** -->
+    <import resource="springcfg/spring-util.xml"/>
+    <import resource="springcfg/spring-opreator.xml"/>
+    <import resource="springcfg/spring-resource.xml"/>
+    <import resource="springcfg/spring-charge.xml"/>
+    <import resource="springcfg/spring-open.xml"/>
+
+</beans>

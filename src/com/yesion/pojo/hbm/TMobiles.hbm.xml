@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.yesion.pojo">
+    <class name="TMobiles" table="TMobiles">
+        <id name="mobileNumber" column="Mobile_Number" length="11"/>
+        <property name="mobileType" column="Mobile_Type" length="3"/>
+        <property name="cardNumber" column="Card_Number" length="13"/>
+        <property name="isAvailable" column="Is_Available" length="1"/>
+
+        <set name="users" cascade="save-update">
+            <key column="Mobile_Number"/>
+            <one-to-many class="TUser"/>
+        </set>
+    </class>
+</hibernate-mapping>

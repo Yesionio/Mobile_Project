@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.yesion.pojo">
+    <class name="TUser" table="TUser">
+        <id name="userId" column="User_ID">
+            <generator class="identity"/>
+        </id>
+        <property name="roamingStatus" column="Roaming_Status" length="1"/>
+        <property name="comLevel" column="Com_Level" length="1"/>
+
+        <many-to-one name="mobiles" column="Mobile_Number" class="TMobiles"/>
+        <many-to-one name="customer" column="Customer_ID" class="TCustomer"/>
+        <many-to-one name="account" column="Account_ID" class="TAccount"/>
+    </class>
+</hibernate-mapping>

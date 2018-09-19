@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.yesion.pojo">
+    <class name="TAccount" table="TAccount">
+        <id name="accountId" column="Account_ID">
+            <generator class="identity"/>
+        </id>
+        <property name="contactPerson" column="Contact_Person" length="10"/>
+        <property name="contactAddress" column="Contact_Address" length="50"/>
+        <property name="accountBalance" column="Account_Balance"/>
+
+        <set name="users" cascade="save-update">
+            <key column="Account_ID"/>
+            <one-to-many class="TUser"/>
+        </set>
+    </class>
+</hibernate-mapping>

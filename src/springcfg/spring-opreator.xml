@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="operatorDao" class="com.yesion.dao.impl.ITOperatorDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="operatorService" class="com.yesion.service.impl.ITOperatorServiceImpl">
+        <property name="itOperatorDao" ref="operatorDao"/>
+        <property name="utilDao" ref="utilDao"/>
+    </bean>
+
+    <bean id="logAction" class="com.yesion.action.logManagerAction">
+        <property name="itOperatorService" ref="operatorService"/>
+    </bean>
+
+</beans>

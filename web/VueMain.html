@@ -1,0 +1,195 @@
+<HTML>
+<head>
+    <title>中国移动业务管理系统</title>
+    <meta http-equiv=Content-Type content="text/html; charset=utf8">
+    <meta content="MSHTML 6.00.2600.0" name=GENERATOR>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body bgColor=#ffffff leftMargin=0 topMargin=0 marginheight="0" marginwidth="0">
+<div align="center" id="app" style="display: none">
+    <table cellSpacing=0 cellPadding=0 width=749 border=0>
+        <tbody>
+        <tr>
+            <td width=173><a href="http://www.chinamobile.com/index.asp"><img
+                    height=74 src="images/logo.gif" width=173 border=0></a></td>
+            <td vAlign=top align=right>
+                <table width="100%" border=0 cellPadding=0 cellSpacing=0>
+                    <tbody>
+                    <tr bgColor=#2650a6>
+                        <td height="12"><img src="images/spacer.gif" width="1" height="1"></td>
+                        <td height="12"><img src="images/spacer.gif" width="1" height="1"></td>
+                        <td height="12"><img src="images/spacer.gif" width="1" height="1"></td>
+                        <td height="12"><img src="images/spacer.gif" width="1" height="1"></td>
+                        <td height="12"><img src="images/spacer.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr bgColor=#FFFFFF>
+                        <td><img src="images/spacer.gif" width="1" height="1"></td>
+                        <td><img src="images/spacer.gif" width="1" height="1"></td>
+                        <td><img src="images/spacer.gif" width="1" height="1"></td>
+                        <td><img src="images/spacer.gif" width="1" height="1"></td>
+                        <td><img src="images/spacer.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="images/pic01.gif" width="115" height="55"></td>
+                        <td><img src="images/pic04.gif" width="115" height="55"></td>
+                        <td><img src="images/pic03.gif" width="115" height="55"></td>
+                        <td><img src="images/pic02.gif" width="115" height="55"></td>
+                        <td><img src="images/pic05.gif" width="115" height="55"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td height="12" colSpan=2 align=right bgColor=#d4dced>
+
+
+                <img src="images/spacer.gif" width="1" height="1">
+                <table cellSpacing=0 cellPadding=0 border=0>
+                    <tbody>
+                    <tr>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </td>
+        </tr>
+        <tr>
+            <td colSpan=2><img height=2 src="images/blank(1).gif" width=1></td>
+        </tr>
+        </tbody>
+    </table>
+    <table cellSpacing=0 cellPadding=0 width=749 border=0>
+        <tbody>
+        <tr vAlign=top>
+            <td width=173 bgColor=#c9d3e9 rowSpan=2>
+                <table cellSpacing=0 cellPadding=0 width=173 border=0>
+                    <tbody>
+                    <tr v-if="isAdmin">
+                        <td width=11 height="29" bgColor=#2650a6><img height=1
+                                                                      src="images/blank.gif" width=1 border=0><img
+                                src="images/Arrow1.gif" width="23" height="23"></td>
+                        <td width=165 height="29" bgColor=#7691c7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+                                class=nav
+                                href="#"
+                                @click.stop.prevent="newOperator('newoperator-div', '新增操作员')">新增操作员</a></td>
+                    </tr>
+                    <tr>
+                        <td bgColor=#ffffff colSpan=2><img height=1
+                                                           src="images/blank.gif" width=1 border=0></td>
+                    </tr>
+                    <tr v-if="isAdmin">
+                        <td width=11 bgColor=#2650a6><img height=1
+                                                          src="images/blank.gif" width=1 border=0><img
+                                src="images/Arrow1.gif" width="23" height="23"></td>
+                        <td width=165 height="29" bgColor=#7691c7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+                                class=nav
+                                href="#"
+                                @click.stop.prevent="newOperator('operatorList-div', '修改操作员')">修改操作员</a></td>
+                    </tr>
+                    <tr>
+                        <td bgColor=#ffffff colSpan=2><img height=1
+                                                           src="images/blank.gif" width=1 border=0></td>
+                    </tr>
+                    <tr v-if="isAdmin">
+                        <td width=11 bgColor=#2650a6><img height=1
+                                                          src="images/blank.gif" width=1 border=0><img
+                                src="images/Arrow1.gif" width="23" height="23"></td>
+                        <td width=165 height="29" bgColor=#7691c7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+                                class=nav href="javascript: void(0)"
+                                @click.stop.prevent="newOperator('resource-div', '资源管理')">资源管理</a></td>
+                    </tr>
+                    <tr>
+                        <td bgColor=#ffffff colSpan=2><img height=1
+                                                           src="images/blank.gif" width=1 border=0></td>
+                    </tr>
+                    <tr v-if="isAdmin">
+                        <td width=11 bgColor=#2650a6><img height=1
+                                                          src="images/blank.gif" width=1 border=0><img
+                                src="images/Arrow1.gif" width="23" height="23"></td>
+                        <td width=165 height="29" bgColor=#7691c7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+                                class=nav href="javascript: void(0)"
+                                @click.stop.prevent="newOperator('chargeconfig-div', '配置业务费用')">配置业务费用</a></td>
+                    </tr>
+                    <tr>
+                        <td bgColor=#ffffff colSpan=2><img height=1
+                                                           src="images/blank.gif" width=1 border=0></td>
+                    </tr>
+                    <tr>
+                        <td width=11 bgColor=#2650a6><img height=1
+                                                          src="images/blank.gif" width=1 border=0><img
+                                src="images/Arrow1.gif" width="23" height="23"></td>
+                        <td width=165 height="29" bgColor=#7691c7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+                                class=nav href="javascript: void(0)"
+                                @click.stop.prevent="newOperator('newCustomer-div', '新增客户')">开户</a></td>
+                    </tr>
+                    <tr>
+                        <td bgColor=#ffffff colSpan=2><img height=1
+                                                           src="images/blank.gif" width=1 border=0></td>
+                    </tr>
+                    <tr>
+                        <td width=11 bgColor=#2650a6><img height=1
+                                                          src="images/blank.gif" width=1 border=0><img
+                                src="images/Arrow1.gif" width="23" height="23"></td>
+                        <td width=165 height="29" bgColor=#7691c7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+                                class=nav
+                                href="Logout.htm">退出</a></td>
+                    </tr>
+                    <tr>
+                        <td bgColor=#ffffff colSpan=2><img height=1
+                                                           src="images/blank.gif" width=1 border=0></td>
+                    </tr>
+
+                    <tr align=middle>
+                        <td colSpan=2 height=160>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colSpan=2><img height=1 src="images/blank.gif"
+                                           width=1></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td width=2 rowSpan=3><img height=1 src="images/blank(1).gif" width=2></td>
+            <td width="2">
+                <table cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <tbody>
+                    <tr>
+                        <td height=25>&nbsp;您现在的位置：{{ curAddr }}</td>
+                    </tr>
+                    <tr>
+                        <td bgColor=#2650a6><img height=1 src="images/blank(1).gif"
+                                                 width=1></td>
+                    </tr>
+                    <tr>
+                        <td><img height=2 src="images/blank(1).gif" width="574"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr vAlign=top>
+            <td height="600" bgColor=#f1f3f9>
+                <div id="mainPage">
+                    <component :is="cmt"></component>
+                </div>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+</div>
+<script src="js/axios.min.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/newOperator.js"></script>
+<script src="js/modifyOperator.js"></script>
+<script src="js/Resource.js"></script>
+<script src="js/chargeConfig.js"></script>
+<script src="js/account.js"></script>
+<script src="js/newUser.js"></script>
+<script src="js/newCustomer.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</HTML>

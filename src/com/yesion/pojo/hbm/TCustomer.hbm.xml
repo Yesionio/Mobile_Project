@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.yesion.pojo">
+    <class name="TCustomer" table="TCustomer">
+        <id name="customerId" column="Customer_ID">
+            <generator class="identity"/>
+        </id>
+        <property name="idType" column="ID_Type" length="1"/>
+        <property name="idNumber" column="ID_Number" length="20"/>
+        <property name="customerName" column="Customer_Name" length="20"/>
+        <property name="customerBirthday" column="Customer_Birthday" length="20"/>
+        <property name="customerSex" column="Customer_Sex" length="2"/>
+        <property name="customerAddress" column="Customer_Address" length="50"/>
+
+        <set name="users" cascade="save-update">
+            <key column="Customer_ID"/>
+            <one-to-many class="TUser"/>
+        </set>
+    </class>
+</hibernate-mapping>
